@@ -1,0 +1,20 @@
+{
+  "name": "apidoc",
+  "version": "1.0.0",
+  "description": "Документация RESTful API",
+  "title": "Единая База Нерудных Материалов",
+  "url" : "",
+  "sampleUrl": "",
+  "header": {
+    "title": "",
+    "filename": ""
+  },
+  "footer": {
+    "title": "",
+    "filename": ""
+  },
+  "template": {
+    "withCompare": true,
+    "withGenerator": true
+  }
+}

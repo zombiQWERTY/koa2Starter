@@ -1,0 +1,44 @@
+version: "2"
+
+services:
+  database-store:
+    image: tianon/true
+    volumes:
+      - ./data/db:/data/db
+
+  mongo:
+    image: mongo:latest
+    command: mongod
+    links:
+      - database-store
+
+  dev:
+    build: .
+    ports:
+      - "9095:8080"
+    command: bash -c "yarn && yarn run dev"
+    links:
+      - mongo
+    volumes:
+      - .:/home/apps/app
+      - ./public:/home/data/public
+
+  prod:
+    build: .
+    ports:
+      - "9095:8080"
+    command: bash -c "yarn && yarn run start"
+    links:
+      - mongo
+    volumes:
+      - .:/home/apps/app
+      - ./public:/home/data/public
+
+  test:
+    build: .
+    command: bash -c "yarn && yarn test"
+    links:
+      - mongo
+    volumes:
+      - .:/home/apps/app
+      - ./public:/home/data/public

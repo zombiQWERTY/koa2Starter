@@ -1,0 +1,16 @@
+node_modules
+dist
+coverage
+build
+
+.tmp
+.sass-cache
+.idea
+bower_components
+.DS_Store
+stats.json
+npm-debug.log
+logs/
+/doc
+/public/uploads/
+/tmp/
